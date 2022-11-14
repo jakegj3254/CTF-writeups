@@ -1,0 +1,11 @@
+# Summary
+With this challenge we make use of the built in function of the website in order to gain control of the computer through a web shell. 
+
+# Approach
+Looking through the code we can see that the website takes the input and sends that to the food.php file. Looking through this we can see that the file writes a ranom name to the inputs we send. Using this knoweldge we want to write a malicious file that runs arbitrary php code, the only thing we need to do, since we have file access to the directory in the webiste through the food query in the foods.php file, is find the location of the malicous payload and open it to run it.
+
+# Accessing the database
+To check our inputs and eventually locate the malicous file we want to read the database, which can be done in two ways. The easiest way to do this is to just use the food query to open trhe orders.db, which results in a url of `http://flagtastic_falafel.ctf-league.osusec.org/foods.php?food=/orders/orders.db`, this gives us the order database which will allow use to look for the md5 hash of the name we input to search for the malicous payload we upload.
+
+# Uploading and using the malicous file
+The malicious payload makes use of the parrthough function which will allow us to use system commands through php. For this challenge I used this payload `<?php passthru($_GET['cmd']);?>`, this will allow us to pass any command we want using the cmd query in addition to the food query. After we submit this payload we use the md5 hash of the name we use to find the file on the databse, which will also give us the randomised file name. After which we can run the correct malicious file. Using the web shell, we can search for the flag through the root directory mauelly(like I painfully did), or if your smart and know some commands, using the find command allows us to search the whole computer for flag.txt. Either way, we eventually find the flag inside a bunch of nested directories. After which we use the cat command to print the contents of the flag to the screen and then we complete the challlenge. 
