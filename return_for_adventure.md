@@ -3,7 +3,7 @@ For this challenge we have another stack overflow challenge, this time focuseing
 
 # Info Gathering
 On the first look through the code in Ghidra, we see a function called huh_whats_this_function_for, which prints out the flag from a text file. We see no call to this function in the basic run of the program, meaning we have to spoof the call somehow with stack overflow. Looking trhough the code we see a function called breakfast, which we can actually overflow. Local_24 is our target in this case, and looking at the stack we see we have a offset of 0x24, which is equal to 36. Meaning we have to give 36 bytes of junk to get to the rest of the stack.
-```
+```c
 void huh_whats_this_function_for(int param_1,int param_2)
 
 {
@@ -20,7 +20,7 @@ void huh_whats_this_function_for(int param_1,int param_2)
   return;
 }
 ```
-```
+```c
 void breakfast(void)
 
 {
