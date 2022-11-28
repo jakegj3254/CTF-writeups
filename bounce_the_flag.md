@@ -1,5 +1,5 @@
 # Summary 
-In this challenge, the goal is to grab a flag from a website game database. In this case the entry point is the login page that occurs after finishing a game, there is a SQL injection attack that can be used to grab any info from the database, in this case we want the info of the user "Mr. Flag", for fairly obvious reasons(it's literally in the name).
+In this challenge, the goal is to grab a flag from a website game database. In this case the entry point is the login page that occurs after finishing a game, there a SQL injection attack can be used to grab any info from the database, in this case we want the info the user "Mr. Flag", for fairly obvious reasons(it's literally in the name).
 
 # Steps 
 1. First things first, looking through the provided code, in the file scores.sql, we can confirm that flag is the password of the user Mr. Flag, since his password is listed as osu{redacted} showing that it is in the form of a flag.
