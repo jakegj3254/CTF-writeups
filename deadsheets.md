@@ -29,7 +29,7 @@ push 0x67616c66
 mov ebx, esp
 mov ecx, 0x0
 mov edx, 0x0
-int 0x80 # run the system call that is setup abover
+int 0x80 # run the system call that is setup above
 
 # read the contents in the open file
 mov ebx, eax
