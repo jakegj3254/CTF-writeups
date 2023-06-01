@@ -1,7 +1,7 @@
 # Relevant_xkcd
 ## Summary
 This challenge incorpates a aspect of chatgpt, but in reality the path 
-towards the flag is reading the flag through rediecting the program 
+towards the flag is reading the flag through redirecting the program 
 towards a incorrect link of our own choosing.
 
 ## Code
