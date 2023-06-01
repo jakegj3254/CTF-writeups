@@ -64,21 +64,21 @@ bot.run(bot_token)
 
 ## Attack Path
 For this challenge one the main revelations that helps, is remebering 
-the file url scheme. For instance within your web browser you can tyoe 
-`file:///path/to/file` which will open open the file. A additional 
-realization is the fact that the requests.urlopen function supports
-this url scheme. Meaning if we can somehow get the program to read the url
-as this file inject, we can get the bot to send us any file that we know
+the file url scheme. For instance within your web browser you can type 
+`file:///path/to/file` which will open the local file on your system. A additional 
+realization is the fact that the requests.urlopen function supports this method.
+Meaning if we can somehow get the program to recieve a file scheme url
+when it calls urlopen, we can get the bot to send us any file that we know
 the path of. 
 
 ## Exploitation
-The payload in this case is fairly simple, we merely send the bot with a 
+The payload in this case is fairly simple, we merely send chatgpt with a 
 request to exactly respond with a url of our choosing. This url should be
 under your control, and in this instance I used beeceptor to have this 
 functionallity. Now that you have a server that you can call with a url 
-from the interent, set it up to mirror the portion of the request that 
-the bot expects, in this case the bot looks for the Image URl portion,
-so have your server return thiss data with the file url payload. Now
+from the internet, set it up to mirror the portion of the request that 
+the bot expects, in this case the bot looks for the Image URL portion,
+so have your server return this data with the file url payload. Now
 when the bot reads this data it will strip any extra information. Then it
 will take this stripped url and pass it into the urlopen function. Since 
 that url will be the local path of the flag, we can have the bot send us
